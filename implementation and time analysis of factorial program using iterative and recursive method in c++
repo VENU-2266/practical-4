@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+// Iterative Method
+long long factorialIterative(int n)
+{
+    long long fact = 1;
+
+    for (int i = 1; i <= n; i++)
+    {
+        fact = fact * i;
+    }
+
+    return fact;
+}
+
+// Recursive Method
+long long factorialRecursive(int n)
+{
+    // Base case
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+
+    // Recursive case
+    return n * factorialRecursive(n - 1);
+}
+
+int main()
+{
+    int n;
+
+    cout << "Enter a number: ";
+    cin >> n;
+
+    // Check for negative number
+    if (n < 0)
+    {
+        cout << "Factorial is not defined for negative numbers.";
+    }
+    else
+    {
+        // Iterative result
+        cout << "\nFactorial using Iterative Method = "
+             << factorialIterative(n);
+
+        // Recursive result
+        cout << "\nFactorial using Recursive Method = "
+             << factorialRecursive(n);
+
+        // Time and Space Complexity
+        cout << "\n\nTime Complexity:";
+        cout << "\nIterative = O(n)";
+        cout << "\nRecursive = O(n)";
+
+        cout << "\n\nSpace Complexity:";
+        cout << "\nIterative = O(1)";
+        cout << "\nRecursive = O(n)";
+    }
+
+    return 0;
+}
